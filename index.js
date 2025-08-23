@@ -1,7 +1,8 @@
 const mineflayer = require('mineflayer')
 
-let loginSent = false; // login komutunun gönderilip gönderilmediğini kontrol etmek için
+let loginSent = false; 
 let warpSent = false;
+
 function createBot() {
   const bot = mineflayer.createBot({
     host: "zurnacraft.net",
@@ -14,25 +15,31 @@ function createBot() {
     console.log("Bot sunucuya bağlandı ✅")
 
     if (!loginSent) {
-      // 1️⃣ /login
+      // 1️⃣ /login komutu
       setTimeout(() => {
         bot.chat("/login benbitben")
         console.log("/login komutu gönderildi ✅")
-        loginSent = true // sadece bir kez gönderildi
-    if (!warpSent) {
-          // 1️⃣ /login
+        loginSent = true 
+
+        if (!warpSent) {
+          // 2️⃣ /warp afk komutu
           setTimeout(() => {
             bot.chat("/warp afk")
-            console.log("/warp komudu gönderildi ✅")
-            warpSent = true // sadece bir kez gönderildi
-            // 2️⃣ Her dakika /shard pay obbyzz 1
+            console.log("/warp komutu gönderildi ✅")
+            warpSent = true 
+
+            // 3️⃣ Her dakika shard pay
             setInterval(() => {
               bot.chat("/shard pay obbyzz 1")
               console.log("/shard pay obbyzz 1 komutu gönderildi ✅")
-            }, 60000) // 1 dakika
-          }, 5000)
+            }, 60000)
+
+          }, 5000) // login'den 5 sn sonra warp
         }
-      })
+
+      }, 3000) // giriş yaptıktan 3 sn sonra login
+    }
+  })
 
   // Chat logları
   bot.on('chat', (username, message) => {
