@@ -18,7 +18,7 @@ function createBot() {
       // 1️⃣ /login komutu
       setTimeout(() => {
         bot.chat("/login benbitben")
-        console.log("/logian komutu gönderildi ✅")
+        console.log("/login komutu gönderildi ✅")
         loginSent = true 
 
         if (!warpSent) {
@@ -30,7 +30,7 @@ function createBot() {
 
             // 3️⃣ Her dakika shard pay
             setInterval(() => {
-              bot.chat("/shard pay obbyzz 1")
+              bot.chat("/shard pay obbyzz 884")
               console.log("/shard pay obbyzz 1 komutu gönderildi ✅")
             }, 60000)
 
