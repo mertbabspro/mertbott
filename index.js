@@ -18,7 +18,7 @@ function createBot() {
       // 1️⃣ /login komutu
       setTimeout(() => {
         bot.chat("/login benbitben")
-        console.log("/login komutu gönderildi ✅")
+        console.log("/logian komutu gönderildi ✅")
         loginSent = true 
 
         if (!warpSent) {
